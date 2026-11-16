@@ -1,0 +1,1065 @@
+# OPPORTUNITY RADAR
+## Product Requirements Document (PRD) & Complete Development Roadmap
+
+**Version:** 1.0  
+**Date:** 13 November 2026  
+**Product:** Opportunity Radar  
+**Initial market:** India  
+**Product type:** Personalized internship and research-opportunity discovery engine  
+**Status:** Initial prototype and source-registry milestone developed; automated discovery roadmap pending.
+
+---
+
+# 1. Product vision
+
+Opportunity Radar is a personalized discovery engine that continuously searches the internet for internship and research opportunities across Indian Institutes of Technology (IITs), government research institutions, laboratories, departments and individual professors or scientists.
+
+Its purpose is to solve a common problem: valuable opportunities are scattered across hundreds of institutional websites, department pages, PDFs, laboratory websites and individual researcher announcements. Students cannot manually monitor all these sources, and opportunities can close before students discover them.
+
+Opportunity Radar will:
+
+1. Discover opportunities from multiple public sources.
+2. Identify internship announcements, research projects and informal research opportunities.
+3. Extract deadlines, eligibility, funding, duration and application instructions.
+4. Verify information using original sources.
+5. Match opportunities against a student's academic profile and interests.
+6. Rank relevant opportunities.
+7. Track application deadlines and statuses.
+8. Display newly discovered and relevant opportunities on a personalized dashboard.
+
+**Core principle:** Discover broadly, verify carefully, rank intelligently and never fabricate an opportunity.
+
+# 2. Target users
+
+### Primary user
+
+An undergraduate student in India looking for research internships and technical research experience.
+
+Initial profile used for development and testing:
+
+- Degree: B.Tech
+- Branch: Computer Science and Engineering
+- Institution: MMMUT
+- Graduation year: 2029
+- Current academic level: Second year (editable)
+- Interests:
+  - Cybersecurity
+  - Computer Science
+  - Artificial Intelligence and Machine Learning
+  - Digital Forensics
+  - Computer Networks
+  - Backend Engineering
+  - Databases
+
+### Future users
+
+- Undergraduate students from other engineering branches.
+- Postgraduate students.
+- Students looking for government research internships.
+- Students looking for faculty-guided research projects.
+- Students seeking funded research fellowships.
+
+# 3. Initial scope
+
+## 3.1 Geographic coverage
+
+Phase 1 will focus exclusively on India.
+
+## 3.2 Institution coverage
+
+### A. All 23 IITs
+
+1. IIT Bombay
+2. IIT Delhi
+3. IIT Madras
+4. IIT Kanpur
+5. IIT Kharagpur
+6. IIT Roorkee
+7. IIT Guwahati
+8. IIT Hyderabad
+9. IIT (BHU) Varanasi
+10. IIT Indore
+11. IIT Ropar
+12. IIT Mandi
+13. IIT Gandhinagar
+14. IIT Jodhpur
+15. IIT Patna
+16. IIT Bhubaneswar
+17. IIT Tirupati
+18. IIT Palakkad
+19. IIT Dharwad
+20. IIT Jammu
+21. IIT Bhilai
+22. IIT Goa
+23. IIT (ISM) Dhanbad
+
+### B. Government research organizations
+
+Initial targets:
+
+- DRDO
+- ISRO
+- CSIR laboratories and institutes
+- DST-supported research programmes
+- MeitY
+- C-DAC
+- BARC
+- TIFR
+- NIELIT
+- Department of Atomic Energy
+- ICAR
+- ICMR
+
+Additional central government laboratories and research institutions can be added through the source registry.
+
+### C. Individual researchers
+
+Discover public professional profiles of:
+
+- IIT professors
+- Assistant professors
+- Associate professors
+- Research scientists
+- Government laboratory scientists
+- Principal investigators
+- Research group leaders
+- Laboratory directors
+
+Researcher discovery is a core feature, not an optional future enhancement.
+
+# 4. Opportunity categories
+
+The engine must support:
+
+| Category | Description |
+|---|---|
+| Summer internships | Summer research and technical internships |
+| Winter internships | Winter research programmes |
+| Semester internships | Research during an academic semester |
+| Research internships | Faculty or laboratory research positions |
+| Project assistant | Paid or unpaid research project roles |
+| Research assistant | Research assistant opportunities |
+| Research fellowships | Student research fellowships |
+| Undergraduate research | Faculty-guided undergraduate projects |
+| Government internships | Public-sector research and technical internships |
+| Informal research leads | Public announcements or recruitment signals from researchers |
+
+Funding classification:
+
+- PAID
+- UNPAID
+- STIPEND_UNKNOWN
+- FUNDED
+- FUNDING_UNSPECIFIED
+
+Paid opportunities receive higher ranking priority, but unpaid research with strong academic value must remain discoverable.
+
+# 5. Product principles
+
+1. Official sources take priority over secondary sources.
+2. Every opportunity must retain its source URL.
+3. A researcher working in a field does not automatically mean they accept interns.
+4. Potential openings must not be presented as confirmed vacancies.
+5. Eligibility must be evaluated separately from relevance.
+6. Old announcements must be identified as stale.
+7. Conflicting information must be flagged.
+8. Users must control their own applications and professor communications.
+9. Notifications will initially be dashboard-only.
+10. Public sources must be accessed responsibly.
+
+# 6. Functional requirements
+
+## FR-01: Candidate profile
+
+Users must be able to maintain an editable profile.
+
+Fields:
+
+- Name or display name (optional)
+- Institution
+- Degree
+- Branch
+- Current year of study
+- Graduation year
+- CGPA (optional)
+- Skills
+- Programming languages
+- Technical interests
+- Research interests
+- Preferred locations
+- Funding preference
+- Preferred internship duration
+- Availability dates
+
+The matching engine must use this profile.
+
+## FR-02: Source registry
+
+Maintain a structured list of approved and pending information sources.
+
+Every source should store:
+
+- Institution
+- Source name
+- Source URL
+- Source category
+- Official/secondary trust level
+- Allowed domain
+- Relevant path prefix
+- Review status
+- Monitoring frequency
+- Last checked time
+- Last successful check
+- Next scheduled check
+- Failure count
+
+Source states:
+
+- PENDING_REVIEW
+- APPROVED
+- PAUSED
+- REJECTED
+
+A homepage must not automatically be treated as an internship announcement page.
+
+## FR-03: Opportunity discovery
+
+The system must find opportunities through:
+
+1. Known official sources.
+2. Search engine discovery.
+3. RSS and Atom feeds.
+4. Department pages.
+5. Faculty directories.
+6. Laboratory websites.
+7. Project announcements.
+8. Public PDF notices.
+9. Public researcher announcements.
+
+## FR-04: Researcher discovery
+
+Find researchers through official faculty directories and laboratory pages.
+
+Store:
+
+- Researcher name
+- Institution
+- Department
+- Designation
+- Research areas
+- Official profile URL
+- Laboratory URL
+- Public professional contact information, where explicitly published
+- Related announcements
+- Evidence of recruitment signals
+- Last verified date
+
+Do not infer that a researcher is recruiting solely from their research interests.
+
+## FR-05: Opportunity extraction
+
+Extract:
+
+- Title
+- Institution
+- Department
+- Laboratory
+- Opportunity type
+- Description
+- Eligibility
+- Degree requirements
+- Branch requirements
+- Year-of-study requirements
+- CGPA requirements
+- Skills
+- Duration
+- Start date
+- Deadline
+- Funding
+- Stipend amount
+- Location
+- Application procedure
+- Application URL
+- Contact information
+- Original source URL
+- Publication date
+- Last verified date
+
+Unknown information must remain UNKNOWN, not be guessed.
+
+## FR-06: Verification
+
+Each opportunity must have two independent classifications.
+
+**Application status:**
+
+- UPCOMING
+- OPEN
+- CLOSED
+- PAUSED
+- CANCELLED
+- UNKNOWN
+
+**Verification status:**
+
+- VERIFIED
+- PARTIALLY_VERIFIED
+- UNVERIFIED
+- STALE
+- CONFLICTED
+
+A verified opening must have credible supporting evidence from an original or otherwise authoritative source.
+
+## FR-07: Eligibility engine
+
+Eligibility states:
+
+- ELIGIBLE
+- POSSIBLY_ELIGIBLE
+- INELIGIBLE
+- INSUFFICIENT_INFORMATION
+
+Eligibility checks:
+
+- Degree
+- Branch
+- Year of study
+- Graduation year
+- CGPA
+- Skills
+- Nationality or other explicitly stated requirements
+- Other programme-specific criteria
+
+Never label a student eligible when a mandatory condition is unknown.
+
+## FR-08: Opportunity matching
+
+Each opportunity receives a relevance score from 0–100.
+
+Initial proposed weighting:
+
+| Factor | Weight |
+|---|---:|
+| Research-interest relevance | 30% |
+| Skill alignment | 25% |
+| Academic suitability | 15% |
+| Opportunity quality and evidence | 10% |
+| Funding preference | 10% |
+| Recency | 10% |
+
+Eligibility remains a separate classification and cannot be replaced by the relevance score.
+
+The system should explain why each opportunity was recommended.
+
+## FR-09: Dashboard
+
+The dashboard must display:
+
+- Newly discovered opportunities
+- Open opportunities
+- Upcoming deadlines
+- Saved opportunities
+- Best profile matches
+- Potential researcher leads
+- Recently discovered researchers
+- Source health
+- Unverified information requiring review
+
+Filters:
+
+- Institution
+- Organization type
+- Department
+- Research area
+- Opportunity category
+- Funding
+- Deadline
+- Eligibility
+- Verification status
+- Relevance score
+
+## FR-10: Application tracking
+
+Users can manually track:
+
+- Interested
+- Saved
+- Preparing application
+- Applied
+- Interview
+- Accepted
+- Rejected
+- Withdrawn
+
+Store application dates, notes, links and follow-up dates.
+
+The engine must not automatically submit applications or contact professors.
+
+## FR-11: Reminders
+
+Dashboard reminders for:
+
+- Application deadlines
+- Upcoming opportunities
+- Saved opportunities nearing closure
+- Follow-up dates
+- Sources requiring review
+
+External notifications are outside the initial release.
+
+# 7. Complete development roadmap
+
+The following phases define the complete intended product. A phase is complete only after its acceptance criteria have been met.
+
+## Phase 0 — Project foundation
+
+**Goal:** Establish a working application.
+
+Tasks:
+
+- Create Node.js project.
+- Configure Express.
+- Create HTML/CSS/JavaScript frontend.
+- Configure SQLite.
+- Build basic dashboard.
+- Create opportunity records.
+- Create researcher records.
+- Create profile management.
+- Create source registration.
+
+Deliverables:
+
+- Working local application.
+- Database.
+- Basic REST API.
+- Initial documentation.
+
+Acceptance criteria:
+
+- Application starts locally.
+- Records can be created and retrieved.
+- Profile can be edited.
+- Data persists after restarting the server.
+
+**Status:** Initial starter implemented.
+
+## Phase 1 — Institutional source registry
+
+**Goal:** Build the institution and source foundation.
+
+Tasks:
+
+- Add all 23 IITs.
+- Add initial government research organizations.
+- Add source categories.
+- Add source trust levels.
+- Add approval workflow.
+- Add pause and reject controls.
+- Add monitoring frequency fields.
+- Add source health metadata.
+- Allow registration of exact faculty, department, lab and internship pages.
+
+Deliverables:
+
+- Seed script.
+- Source registry UI.
+- Source-management APIs.
+- SQLite schema migration.
+
+Acceptance criteria:
+
+- Institutions can be seeded without duplicate URLs.
+- Sources can be searched and filtered.
+- Sources can be approved, rejected or paused.
+- Pending homepages are never treated as confirmed opportunity pages.
+
+**Status:** Implemented in the Phase 2 project ZIP; not yet pushed to GitHub.
+
+## Phase 2 — Discovery infrastructure
+
+**Goal:** Make the system capable of finding new public information.
+
+Tasks:
+
+1. Select a search provider.
+2. Build a search-provider adapter.
+3. Create institution-specific search queries.
+4. Create department-specific search queries.
+5. Create researcher-specific search queries.
+6. Add RSS/Atom discovery.
+7. Add public-page fetching.
+8. Add PDF discovery.
+9. Store discovered URLs.
+10. Remove duplicate URLs.
+11. Track discovery runs.
+
+Example queries:
+
+- "undergraduate research internship IIT computer science"
+- "summer research intern IIT cybersecurity"
+- "project assistant computer science DRDO"
+- "research internship CSIR computer science"
+- "IIT faculty cybersecurity research group"
+- "undergraduate students research project AI IIT"
+
+Acceptance criteria:
+
+- Discovery can run manually.
+- Results are stored with their source and discovery time.
+- Duplicate URLs are not repeatedly inserted.
+- Failed sources are recorded.
+- Search results are not automatically labelled verified openings.
+
+## Phase 3 — Website monitoring and content extraction
+
+**Goal:** Extract useful information from public pages.
+
+Tasks:
+
+- Fetch approved pages.
+- Detect page changes.
+- Parse HTML.
+- Parse RSS and Atom.
+- Extract links.
+- Extract PDF notices.
+- Extract publication dates.
+- Store page snapshots.
+- Detect expired announcements.
+- Identify changed deadlines.
+- Track source failures.
+
+Technical requirements:
+
+- Request timeouts.
+- Per-domain rate limits.
+- Domain allowlists.
+- URL validation.
+- SSRF protection.
+- Response-size limits.
+- Content-type validation.
+- Robots and site-terms compliance.
+- Clear user-agent identification.
+
+Acceptance criteria:
+
+- Only approved sources are fetched.
+- A failed source does not stop other monitoring.
+- Page snapshots and extracted content can be traced to the original URL.
+- Changed pages can be identified.
+
+## Phase 4 — AI opportunity extraction
+
+**Goal:** Turn raw content into structured opportunity records.
+
+Use Gemini API initially through a provider adapter.
+
+Tasks:
+
+- Detect whether a page contains an opportunity.
+- Extract structured fields.
+- Extract eligibility criteria.
+- Extract funding information.
+- Extract deadlines.
+- Extract duration.
+- Extract application procedures.
+- Identify the relevant institution and department.
+- Link every extracted field to supporting evidence where possible.
+- Store extraction confidence.
+- Identify missing information.
+
+AI output must use a strict structured schema.
+
+Important:
+
+- AI must not invent dates, stipend amounts or eligibility.
+- Uncertain fields must be UNKNOWN.
+- Low-confidence extractions should enter a review queue.
+- Original content must remain available for verification.
+
+Acceptance criteria:
+
+- Structured opportunities can be created from supported pages.
+- Each extracted record retains its original URL.
+- Unknown values remain unknown.
+- Extraction failures are logged and retryable.
+
+## Phase 5 — Opportunity verification engine
+
+**Goal:** Determine whether an opportunity is real, current and actionable.
+
+Tasks:
+
+- Verify source authority.
+- Verify opening status.
+- Check publication and deadline dates.
+- Detect expired announcements.
+- Detect duplicate announcements.
+- Detect conflicting dates.
+- Identify outdated PDFs.
+- Check application links.
+- Record verification history.
+- Add human-review workflow.
+
+Acceptance criteria:
+
+- Application status and verification status are independent.
+- Conflicting sources produce CONFLICTED.
+- Old information can become STALE.
+- No unverified lead is presented as a confirmed vacancy.
+
+## Phase 6 — Researcher and laboratory discovery
+
+**Goal:** Build a searchable database of potential research supervisors and laboratories.
+
+Tasks:
+
+- Discover IIT faculty directories.
+- Discover department staff pages.
+- Discover government laboratory scientists.
+- Extract public professional profiles.
+- Identify research areas.
+- Identify laboratory affiliations.
+- Identify official profile links.
+- Associate researchers with related opportunities.
+- Identify explicit recruitment announcements.
+- Track potential openings and informal public signals.
+
+Researcher signal classifications:
+
+- CONFIRMED_OPEN
+- POTENTIAL_OPENING
+- RESEARCH_LEAD
+- CLOSED
+- UNKNOWN
+
+Acceptance criteria:
+
+- Researcher profiles are traceable to public professional sources.
+- Research interests do not automatically create confirmed openings.
+- Recruitment evidence is stored separately.
+- Users can search researchers by institution and research area.
+
+## Phase 7 — Personalized eligibility and matching engine
+
+**Goal:** Identify opportunities most suitable for the student's profile.
+
+Tasks:
+
+- Normalize skills and research interests.
+- Compare opportunity requirements with profile data.
+- Calculate relevance score.
+- Evaluate eligibility separately.
+- Prioritize paid opportunities.
+- Preserve valuable unpaid research.
+- Explain ranking factors.
+- Allow user-controlled preferences.
+
+Acceptance criteria:
+
+- Each opportunity has an explainable match score.
+- Eligibility is independently classified.
+- Missing mandatory criteria result in INSUFFICIENT_INFORMATION or POSSIBLY_ELIGIBLE as appropriate.
+- Rankings can be filtered and sorted.
+
+## Phase 8 — Dashboard and search experience
+
+**Goal:** Make discovery results useful and easy to act on.
+
+Tasks:
+
+- Build opportunity feed.
+- Build researcher discovery page.
+- Add filters and sorting.
+- Add saved opportunities.
+- Add source links.
+- Add evidence display.
+- Add match explanations.
+- Add deadline indicators.
+- Add source health overview.
+- Add review queue.
+
+Acceptance criteria:
+
+- A user can discover, filter and save opportunities.
+- Each result shows source and verification status.
+- The user can inspect the evidence behind an extracted record.
+
+## Phase 9 — Application management and reminders
+
+**Goal:** Help students manage their internship search.
+
+Tasks:
+
+- Add application tracking.
+- Add notes.
+- Add follow-up dates.
+- Add deadline reminders.
+- Add application status updates.
+- Add dashboard notifications.
+- Add calendar-style deadline view.
+
+Acceptance criteria:
+
+- Users can track opportunities from saved to applied.
+- Reminders are visible in the dashboard.
+- Closed opportunities remain in history.
+
+## Phase 10 — Automation and scheduling
+
+**Goal:** Make discovery continuous instead of manual.
+
+Tasks:
+
+- Create scheduled discovery jobs.
+- Create scheduled source monitoring.
+- Create retry logic.
+- Add source-specific monitoring frequency.
+- Add job history.
+- Add error logs.
+- Add manual run controls.
+- Prevent duplicate concurrent jobs.
+- Add monitoring and health statistics.
+
+Initial schedule proposal:
+
+| Task | Frequency |
+|---|---|
+| High-priority approved sources | Daily |
+| Other approved sources | Weekly |
+| Broad search discovery | Weekly |
+| Researcher directory updates | Monthly |
+| Deadline re-verification | Daily for near-deadline records |
+
+The schedule must be configurable.
+
+Acceptance criteria:
+
+- Jobs run without user intervention.
+- Failed jobs can be retried.
+- Job history is visible.
+- Duplicate jobs do not create duplicate opportunities.
+
+## Phase 11 — Quality, security and performance
+
+**Goal:** Make the engine reliable.
+
+Tasks:
+
+- API validation.
+- Database indexing.
+- Input sanitization.
+- URL and SSRF protection.
+- Rate limiting.
+- Error handling.
+- Logging.
+- Backup and restore.
+- Automated tests.
+- Integration tests.
+- Duplicate detection tests.
+- Extraction evaluation.
+- Matching evaluation.
+- Security review.
+
+Acceptance criteria:
+
+- Critical API paths have tests.
+- Source fetching cannot access arbitrary internal network addresses.
+- Database backups can be restored.
+- Sensitive API keys are kept outside source code.
+- Errors are visible without exposing secrets.
+
+## Phase 12 — Release and expansion
+
+**Goal:** Make Opportunity Radar usable beyond the initial development environment.
+
+Tasks:
+
+- Prepare production configuration.
+- Add deployment documentation.
+- Configure persistent database storage.
+- Add backup strategy.
+- Add monitoring.
+- Add user authentication if multi-user support is required.
+- Add controlled beta testing.
+- Collect feedback.
+- Improve source coverage.
+
+Future expansion:
+
+- NITs.
+- IISc.
+- IISERs.
+- Central universities.
+- Other government research institutions.
+- Selected international research programmes.
+
+Geographic expansion must come after reliable India coverage.
+
+# 8. Technical architecture
+
+## Agreed technology stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML |
+| Styling | CSS |
+| Frontend logic | Browser JavaScript |
+| Backend | Node.js |
+| API | Express |
+| Database | SQLite |
+| AI extraction | Gemini API |
+| Discovery | Search API, RSS and public HTML |
+| PDF extraction | Lightweight Node.js PDF parser |
+| Scheduling | Node.js scheduled jobs |
+| Version control | Git and GitHub |
+
+Do not introduce React, TypeScript, microservices, Redis, Kafka or a complex cloud architecture unless a real requirement emerges.
+
+## Architecture flow
+
+```text
+Official IIT / Government / Researcher Sources
+                     |
+                     v
+             Discovery Engine
+                     |
+                     v
+             URL Deduplication
+                     |
+                     v
+          Approved Source Fetcher
+                     |
+                     v
+          HTML / RSS / PDF Parser
+                     |
+                     v
+           AI Extraction Engine
+                     |
+                     v
+           Verification Engine
+                     |
+          +----------+----------+
+          |                     |
+          v                     v
+    Opportunities          Researchers
+          |                     |
+          +----------+----------+
+                     |
+                     v
+          Eligibility & Matching
+                     |
+                     v
+              SQLite Database
+                     |
+                     v
+           Opportunity Dashboard
+                     |
+                     v
+       Saved Items / Deadline Reminders
+```
+
+# 9. Initial database design
+
+The database should evolve gradually rather than introducing every table at once.
+
+Core tables:
+
+| Table | Purpose |
+|---|---|
+| profiles | Candidate profiles |
+| organizations | IITs, government bodies and institutions |
+| sources | Approved and pending public sources |
+| source_checks | Monitoring history |
+| source_snapshots | Historical page content |
+| discovery_runs | Search and discovery history |
+| discovered_urls | URLs found by discovery |
+| opportunities | Structured opportunity records |
+| opportunity_evidence | Field-level evidence and source links |
+| opportunity_sources | Many-to-many source relationships |
+| researchers | Professor and scientist profiles |
+| research_groups | Labs and research groups |
+| researcher_signals | Recruitment and research leads |
+| skills | Normalized skills |
+| profile_skills | Candidate skills |
+| match_scores | Relevance scores and explanations |
+| applications | Application tracking |
+| reminders | Dashboard reminders |
+| jobs | Scheduled task history |
+
+Important database rule: preserve original source records and verification history. Do not overwrite historical evidence without keeping a record of the change.
+
+# 10. User experience
+
+The application should have these primary sections:
+
+1. Overview
+2. Opportunities
+3. Researcher Discovery
+4. Institutions
+5. Source Registry
+6. Saved Opportunities
+7. Applications
+8. Deadlines
+9. My Profile
+10. Settings
+
+Every opportunity card should show:
+
+- Title
+- Organization
+- Department
+- Category
+- Funding
+- Deadline
+- Eligibility classification
+- Relevance score
+- Application status
+- Verification status
+- Original source link
+
+Researcher cards should show:
+
+- Name
+- Institution
+- Department
+- Research areas
+- Official profile
+- Research lead classification
+- Recruitment evidence, if available
+
+# 11. Non-functional requirements
+
+### Reliability
+
+- One failed source must not stop the complete discovery process.
+- Jobs must be retryable.
+- Database records must remain consistent.
+- Duplicate discovery must be controlled.
+
+### Performance
+
+- Paginate large result sets.
+- Index common search fields.
+- Keep HTML fetching lightweight.
+- Avoid heavy browser automation as the default approach.
+
+### Security
+
+- Store API keys in environment variables.
+- Never commit secrets to GitHub.
+- Restrict source fetching to approved public domains.
+- Block localhost, private IP ranges and unsafe redirects.
+- Do not bypass authentication, CAPTCHAs or paywalls.
+
+### Privacy
+
+- Keep candidate data local during the initial release.
+- Collect only information required for matching.
+- Do not expose personal profile information to public sources.
+- Do not automatically send emails or messages.
+
+### Legal and ethical requirements
+
+- Respect robots directives, website terms and applicable law.
+- Follow reasonable request rates.
+- Prefer official institutional sources.
+- Use public professional researcher information.
+- Do not scrape protected or restricted content.
+
+# 12. Success metrics
+
+Initial product metrics:
+
+| Metric | Target |
+|---|---|
+| IIT coverage | All 23 institutions represented |
+| Government organization coverage | Initial target catalog represented |
+| Opportunity source traceability | 100% |
+| Fabricated deadline or stipend | 0 |
+| Duplicate opportunity rate | Under 2% target |
+| Confirmed opportunity verification | Evidence-backed |
+| Researcher profile traceability | 100% |
+| Dashboard availability | Reliable local operation |
+| Matching explanation | Available for every scored opportunity |
+
+Coverage metrics must distinguish between an institution being registered and its relevant pages actually being monitored. Registering an institution does not mean its opportunities are fully covered.
+
+# 13. Development priorities
+
+The project should be built in the following order:
+
+**Priority 1 — Make discovery work**
+- Search provider.
+- Search query engine.
+- RSS discovery.
+- URL deduplication.
+- Source fetching.
+
+**Priority 2 — Make information trustworthy**
+- Content extraction.
+- AI structured output.
+- Evidence storage.
+- Verification workflow.
+- Deadline validation.
+
+**Priority 3 — Make discovery comprehensive**
+- IIT department pages.
+- Faculty directories.
+- Research groups.
+- Government scientists.
+- Project announcements.
+
+**Priority 4 — Make it personalized**
+- Profile normalization.
+- Eligibility engine.
+- Relevance scoring.
+- Funding preference.
+
+**Priority 5 — Make it automatic**
+- Scheduled monitoring.
+- Dashboard reminders.
+- Retry and health tracking.
+
+# 14. Definition of the finished product
+
+Opportunity Radar will be considered ready for its first full release when:
+
+1. It monitors approved sources across all 23 IITs and the initial government research organizations.
+2. It can discover opportunities from official pages, search results, RSS feeds and public documents.
+3. It can discover public faculty and scientist profiles.
+4. It distinguishes confirmed openings from potential research leads.
+5. It extracts deadlines, eligibility, duration, funding and application instructions.
+6. It preserves evidence for extracted information.
+7. It detects stale, closed and conflicting announcements.
+8. It evaluates student eligibility.
+9. It ranks opportunities according to the candidate's profile.
+10. It displays useful results in the dashboard.
+11. It tracks saved opportunities and applications.
+12. It automatically monitors approved sources on a schedule.
+13. It provides reliable dashboard deadline reminders.
+
+**The final product is not simply a website containing internship links. It is a personalized, evidence-backed research and internship intelligence engine that discovers opportunities students would otherwise miss.**
+
+---
+
+# 15. Current project baseline
+
+| Milestone | Current state |
+|---|---|
+| Phase 0 — Foundation | Initial implementation |
+| Phase 1 — Source registry | Implemented in Phase 2 ZIP |
+| Phase 2 — Discovery infrastructure | Not started |
+| Phase 3 — Fetching and parsing | Not started |
+| Phase 4 — AI extraction | Not started |
+| Phase 5 — Verification | Not started |
+| Phase 6 — Researcher discovery | Not started |
+| Phase 7 — Matching and eligibility | Not started |
+| Phase 8 — Dashboard expansion | Partial foundation |
+| Phase 9 — Applications and reminders | Not started |
+| Phase 10 — Automation | Not started |
+| Phase 11 — Testing and security | Not started |
+| Phase 12 — Release | Not started |
+
+The Phase 2 source-registry implementation is currently available as a ZIP, but still needs to be incorporated into the GitHub repository.
+
+**Immediate next engineering milestone:** Phase 2 — Discovery Infrastructure. Build the search provider adapter, discovery query catalog, URL deduplication and discovery-run tracking before moving on to website crawling and AI extraction.

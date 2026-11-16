@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opportunity Radar — Research & Internship Intelligence</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-box">OR</div>
+        <div class="brand-text">
+          <strong>Opportunity Radar</strong>
+          <small>RESEARCH INTELLIGENCE · INDIA</small>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <div class="nav-group-title">DISCOVERY</div>
+        <button class="nav-btn active" data-page="dashboard">
+          <span class="icon">📊</span> Overview
+        </button>
+        <button class="nav-btn" data-page="opportunities">
+          <span class="icon">🎯</span> Opportunities <span class="nav-badge" id="nav-opps-badge">8</span>
+        </button>
+        <button class="nav-btn" data-page="researchers">
+          <span class="icon">🔬</span> Researchers & Labs
+        </button>
+        <button class="nav-btn" data-page="institutions">
+          <span class="icon">🏛️</span> Institutions (IITs & Labs)
+        </button>
+
+        <div class="nav-group-title">MANAGEMENT</div>
+        <button class="nav-btn" data-page="saved">
+          <span class="icon">⭐</span> Shortlist & Saved
+        </button>
+        <button class="nav-btn" data-page="applications">
+          <span class="icon">📋</span> Applications Pipeline
+        </button>
+        <button class="nav-btn" data-page="deadlines">
+          <span class="icon">⏰</span> Deadlines & Reminders <span class="nav-badge alert" id="nav-reminders-badge">0</span>
+        </button>
+
+        <div class="nav-group-title">ENGINE & CONFIG</div>
+        <button class="nav-btn" data-page="sources">
+          <span class="icon">📡</span> Source Registry
+        </button>
+        <button class="nav-btn" data-page="discovery">
+          <span class="icon">⚡</span> Discovery & Automation
+        </button>
+        <button class="nav-btn" data-page="profile">
+          <span class="icon">👤</span> My Profile
+        </button>
+      </nav>
+
+      <div class="sidefoot">
+        <div class="user-chip">
+          <div class="avatar">CS</div>
+          <div class="user-details">
+            <span class="user-name" id="side-user-name">B.Tech CSE '29</span>
+            <small class="user-inst" id="side-user-inst">MMMUT · 2nd Year</small>
+          </div>
+        </div>
+        <div class="env-pill">● SECURE LOCAL WORKSPACE</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-title">
+          <small id="subheading">INDIA · ALL 23 IITS & GOVERNMENT RESEARCH ORGS</small>
+          <h1 id="heading">Overview</h1>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn secondary" onclick="quickCheckSources()" title="Run verification and health check across sources">
+            🔄 Check Health
+          </button>
+          <button class="btn primary" onclick="quickDiscoveryRun()" title="Trigger search engine & RSS discovery run">
+            ⚡ Run Discovery
+          </button>
+        </div>
+      </header>
+
+      <div class="content-scroll">
+        <section id="content"></section>
+        <footer class="app-footer">
+          <div>Opportunity Radar v1.0 · Autonomous Evidence-Backed Academic Discovery Engine</div>
+          <small>Personalized for MMMUT CSE · Strictly official institutional sources · No fabricated dates or stipends</small>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal / Drawer Container -->
+  <div id="modal-container" class="modal-backdrop hidden"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

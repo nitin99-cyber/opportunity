@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables & secrets (NEVER commit to git)
+.env
+.env.*
+!.env.example
+
+# Local SQLite databases & journals
+data/
+*.db
+*.db-wal
+*.db-shm
+test/test-radar.db*
+
+# Logs & cache
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# OS generated files
+.DS_Store
+Thumbs.db

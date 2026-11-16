@@ -1,0 +1,212 @@
+[
+  {
+    "name": "IIT Bombay",
+    "organization": "IIT Bombay",
+    "url": "https://www.iitb.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Delhi",
+    "organization": "IIT Delhi",
+    "url": "https://home.iitd.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Madras",
+    "organization": "IIT Madras",
+    "url": "https://www.iitm.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Kanpur",
+    "organization": "IIT Kanpur",
+    "url": "https://www.iitk.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Kharagpur",
+    "organization": "IIT Kharagpur",
+    "url": "https://www.iitkgp.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Roorkee",
+    "organization": "IIT Roorkee",
+    "url": "https://iitr.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Guwahati",
+    "organization": "IIT Guwahati",
+    "url": "https://www.iitg.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Hyderabad",
+    "organization": "IIT Hyderabad",
+    "url": "https://www.iith.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT (BHU) Varanasi",
+    "organization": "IIT (BHU) Varanasi",
+    "url": "https://www.iitbhu.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Indore",
+    "organization": "IIT Indore",
+    "url": "https://www.iiti.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Ropar",
+    "organization": "IIT Ropar",
+    "url": "https://www.iitrpr.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Mandi",
+    "organization": "IIT Mandi",
+    "url": "https://www.iitmandi.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Gandhinagar",
+    "organization": "IIT Gandhinagar",
+    "url": "https://iitgn.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Jodhpur",
+    "organization": "IIT Jodhpur",
+    "url": "https://iitj.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Patna",
+    "organization": "IIT Patna",
+    "url": "https://www.iitp.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Bhubaneswar",
+    "organization": "IIT Bhubaneswar",
+    "url": "https://www.iitbbs.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Tirupati",
+    "organization": "IIT Tirupati",
+    "url": "https://www.iittp.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Palakkad",
+    "organization": "IIT Palakkad",
+    "url": "https://iitpkd.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Dharwad",
+    "organization": "IIT Dharwad",
+    "url": "https://www.iitdh.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Jammu",
+    "organization": "IIT Jammu",
+    "url": "https://www.iitjammu.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Bhilai",
+    "organization": "IIT Bhilai",
+    "url": "https://www.iitbhilai.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT Goa",
+    "organization": "IIT Goa",
+    "url": "https://iitgoa.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "IIT (ISM) Dhanbad",
+    "organization": "IIT (ISM) Dhanbad",
+    "url": "https://www.iitism.ac.in/",
+    "organization_type": "IIT"
+  },
+  {
+    "name": "DRDO",
+    "organization": "DRDO",
+    "url": "https://www.drdo.gov.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "ISRO",
+    "organization": "ISRO",
+    "url": "https://www.isro.gov.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "CSIR",
+    "organization": "CSIR",
+    "url": "https://www.csir.res.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "Department of Science and Technology (DST)",
+    "organization": "Department of Science and Technology (DST)",
+    "url": "https://dst.gov.in/",
+    "organization_type": "GOVERNMENT"
+  },
+  {
+    "name": "MeitY",
+    "organization": "MeitY",
+    "url": "https://www.meity.gov.in/",
+    "organization_type": "GOVERNMENT"
+  },
+  {
+    "name": "C-DAC",
+    "organization": "C-DAC",
+    "url": "https://www.cdac.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "BARC",
+    "organization": "BARC",
+    "url": "https://www.barc.gov.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "TIFR",
+    "organization": "TIFR",
+    "url": "https://www.tifr.res.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "NIELIT",
+    "organization": "NIELIT",
+    "url": "https://www.nielit.gov.in/",
+    "organization_type": "GOVERNMENT"
+  },
+  {
+    "name": "Department of Atomic Energy (DAE)",
+    "organization": "Department of Atomic Energy (DAE)",
+    "url": "https://dae.gov.in/",
+    "organization_type": "GOVERNMENT"
+  },
+  {
+    "name": "ICAR",
+    "organization": "ICAR",
+    "url": "https://icar.org.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  },
+  {
+    "name": "ICMR",
+    "organization": "ICMR",
+    "url": "https://www.icmr.gov.in/",
+    "organization_type": "GOVERNMENT_RESEARCH"
+  }
+]
